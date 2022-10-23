@@ -1,4 +1,4 @@
-// JavaScript source code
+// Import Link from React router
 import { Link } from "react-router-dom";
 function Card(props) {
     return (
@@ -8,7 +8,9 @@ function Card(props) {
                     <h5 className="card-title">{props.expiationOffenceCode}</h5>
                     <p className="card-text">{props.expiationOffenceDescription}</p>
                 </div>
-                <Link to={"/ExpiationList/" + props.expiationOffenceCode} className="btn btn-warning">View Detail</Link>
+
+                {/*Route card to the detail page with the corresponding code*/}
+                <Link to={"/ExpiationList/" + props.expiationOffenceCode} className="btn btn-warning">VIEW DETAILS</Link>
             </div>
         </div>
     )

@@ -7,9 +7,11 @@ function ExpiationList() {
     const [expiationData, setState] = useState([]);
     //use for searching code
     const [searchValue, setSearchValue] = useState('');
+
     const inputRef = useRef();
 
     const debounced = useDebounce(searchValue, 500);
+    //fetch data from API to displat expiation code and description
     useEffect(() => {
         fetch(`http://localhost:5129/api/ExpiationOffenceCodeList?searchText=${encodeURIComponent(debounced)}`)
             .then((response) => response.json())
@@ -20,9 +22,13 @@ function ExpiationList() {
                 console.error(error);
             });
     }, [debounced]);
+
+    //function for button to show alert the chosen value for searching 
     function searchQuery(evt) {
         const value = document.querySelector('[name="searchText"]').value;
+        //alert which code or description is searched
         alert('Search Value: ' + value);
+        //update the value of search with setting a search value again when searching
         setSearchValue(value)
     }
 
@@ -36,16 +42,16 @@ function ExpiationList() {
                         ref={ inputRef }
                         type="text"
                         name="searchText"
-                        onChange={e => setSearchValue(e.target.value)}
+                        
                         className="form-control"
                         spellCheck={ false }
-                        placeholder="Type your query"></input>
+                        placeholder="Type your query"/>
+                
                     <datalist id="datalist">
                         {expiationData.map((item) => (
                             <option value={item.expiationOffenceCode }
                                 key={item.expiationOffenceCode}
                                 expiationOffenceCode={item.expiationOffenceCode}
-
                             />
                         )
                         )
@@ -53,10 +59,12 @@ function ExpiationList() {
                         
                     </datalist>
                 </div>
-                < div className="col-3 text-left mt-3" >
-                    <button type="button" className="btn btn-dark" onClick={searchQuery}>Search</button>
+
+                < div className="col-3 text-center mt-3" >
+                    <button type="button" className="btn btn-dark" onClick={searchQuery} onChange={e => setSearchValue(e.target.value)}>Search</button>
                 </div >
             </div>
+
             <div className="row justify-content-center">
                 {expiationData.map((obj) => (   
                     <Card
