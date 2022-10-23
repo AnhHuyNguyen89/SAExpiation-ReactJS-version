@@ -13,6 +13,7 @@ function ExpiationDetail() {
 
     var monthCounts = new Array(12).fill(0);
     var yearCount = 0;
+
     table.forEach(data => {
         data.noticeDetailList.forEach(notice => {
             monthCounts[data.monthNo - 1] += notice.count;
@@ -29,7 +30,8 @@ function ExpiationDetail() {
             .catch(error => {
                 console.error(error);
             });
-    }, []);
+        //eslint-disable-next-line
+    }, [expiationOffenceCode]);
 
 
     useEffect(() => {
@@ -37,6 +39,7 @@ function ExpiationDetail() {
             .then(response => response.json())
             .then(data => setTable(data))
             .catch(err => { console.log(err) });
+        //eslint-disable-next-line
     }, [selectedYear]);
 
     function yearChange(event) {
@@ -46,45 +49,40 @@ function ExpiationDetail() {
 
     return (
         <div className="container">
-
-                {/*row for expiation code*/}
-                <div className="row mt-4">
-                    <div className="col-sm-3">
-                    <h4>Expiation Code: </h4>
-                    </div>
-                    <div className="col-sm-3">
-                        {detail.expiationOffenceCode}
-                    </div>
-                    <div className="col-sm-3">
-                        <Link to="/ExpiationList" className="btn btn-dark">Back to List</Link>
-                    </div>
+            {/*<h1 style=" width:100%;height:120px; text-align:center; line-height:120px" className="border border-dark">Expiation Code Details</h1>*/}
+            <dl>
+                <div class="row mt-4">
+                    <dt class="col"><h4>Expiation Code: </h4></dt>
+                    <dd class="col">{detail.expiationOffenceCode}</dd>
                 </div>
-
-                {/*row for code description*/}
-                <div className="row">
-                    <div className="col-sm-3">
-                    <h4>Expiation Detail: </h4>
-                    </div>
-                    <div className="col-sm-4">
-                        {detail.expiationOffenceDescription}
-                    </div>
-                    <div className="col-sm-3">
-                        <select className="form-control row" onChange={yearChange}>
-                            <option>{new Date().getFullYear()}</option>
-                            <option>{new Date().getFullYear() - 1}</option>
-                            <option>{new Date().getFullYear() - 2}</option>
-                        </select>
-                    </div>
+                <div class="row">
+                    <dt class="col"><h4>Expiation Detail: </h4></dt>
+                    <dd class="col">{detail.expiationOffenceDescription}</dd>
                 </div>
+                <div class="row">
+                    <dt class="col"><h4>Total codes:</h4></dt>
+                    <dd class="col">{yearCount}</dd>
+                </div>
+            </dl>
 
-            {/*category???*/}
+                {/*category???*/}
 
 
+                
+            <div className="row">
+                <div className="col">
+                    <Link to="/ExpiationList" className="btn btn-dark">Back to List</Link>
+                </div>
+                <div className="col">
+                    <select className="form-control row" onChange={yearChange}>
+                        <option>{new Date().getFullYear()}</option>
+                        <option>{new Date().getFullYear() - 1}</option>
+                        <option>{new Date().getFullYear() - 2}</option>
+                    </select>
+                </div>
+            </div>  
 
-
-
-
-            {/*table summary???*/}
+                {/*table summary*/}
             <table className="table">
                 <thead className="thead-dark">
                     <tr>
@@ -98,27 +96,22 @@ function ExpiationDetail() {
                         table
                             .filter(data => monthCounts[data.monthNo - 1] > 0)
                             .map((data) => ([
-                                <tr>
-                                    <th scope="row" className="bg-warning">{data.monthName}</th>
-                                    <td className="bg-warning"></td>
-                                    <td className="bg-warning">Total: {monthCounts[data.monthNo - 1]}</td>
+                                <tr className="row-header-month">
+                                    <th scope="row">{data.monthName}</th>
+                                    <td></td>
+                                    <td className="row-header">Total: {monthCounts[data.monthNo - 1]}</td>
                                 </tr>,
                                 data.noticeDetailList.map((notice) =>
-                                    <tr>
-                                        <th scope="row"></th>
-                                        <td>{notice.noticeStatusDescription}</td>
-                                        <td>{notice.count}</td>
+                                    <tr className="row-parent">
+                                        <th scope="row" value={notice.noticeStatusDescription}></th>
+                                        <td className="row-child-key" value={notice.noticeStatusDescription}>{notice.noticeStatusDescription}</td>
+                                        <td className="row-child-value" value={notice.noticeStatusDescription}>{notice.count}</td>
                                     </tr>
                                 )
                             ]))
-                    }  
+                    }
                 </tbody>
             </table>
-
-            <div className="row">
-                <dt className="col">Number of expiation offences for selected year is: </dt>
-                <dd className="col">{yearCount}</dd>
-            </div>
         </div>
     );
 }
