@@ -36,22 +36,39 @@
     transform: rotate(360deg);
   }
 }
+.border {
+    padding: 30px 0;
+    background-image: linear-gradient(to right, #D1913C 0%, #FFD194 51%, #D1913C 100%);
+    transition: 0.5s;
+    background-size: 200% auto;
+}
+
+.searchInput:focus {
+    box-shadow: 0 0 0 1px black;
+}
 
 .card {
     border-radius: 4px;
-    background: #fff;
+    background-image: linear-gradient(to right, #ECE9E6 0%, #FFFFFF 51%, #ECE9E6 100%);
     box-shadow: 0 6px 10px rgba(0,0,0,.08), 0 0 6px rgba(0,0,0,.05);
     transition: .3s transform cubic-bezier(.155,1.105,.295,1.12),.3s box-shadow,.3s -webkit-transform cubic-bezier(.155,1.105,.295,1.12);
     padding: 80px 36px;
     cursor: pointer;
     box-sizing: border-box;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: black;
+    box-shadow: 0 0 20px #eee;
+    border-radius: 10px;
+    display: block;
 }
 
 .card:hover {
     transform: scale(1.1);
     box-shadow: 0 10px 20px rgba(0,0,0,.12), 0 4px 8px rgba(0,0,0,.06);
-    background-color: black;
-    color: white;
+    color: black;
+    background-position: right center;
 }
 
 .card .hover_content {
@@ -100,3 +117,88 @@
     text-align:center;
     align-content:center;
 }
+.function__detail{
+    display:flex;
+    justify-content:space-between;
+    align-content:flex-end;
+}
+.form {
+    width: 100%;
+    min-width: 15ch;
+    max-width: 30ch;
+    border: 1px solid #777;
+    border-radius: 0.25em;
+    padding: 0.25em 0.5em;
+    font-size: 1.25rem;
+    cursor: pointer;
+    line-height: 1.1;
+    background-color: #fff;
+    background-image: linear-gradient(to top, #f9f9f9, #fff 33%);
+    text-align:center;
+}
+
+/*button back in details page*/
+.btn-back {
+    background-image: linear-gradient(to right, #1F1C2C 0%, #928DAB 51%, #1F1C2C 100%);
+    margin: 10px;
+    padding: 10px 40px;
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;
+    box-shadow: 0 0 20px #eee;
+    border-radius: 10px;
+    display: block;
+}
+
+.btn-back:hover {
+    background-position: right center; /* change the direction of the change here */
+    color: #fff;
+    text-decoration: none;
+}
+
+/*button search in expiation list page*/
+.btn-search {
+    background-image: linear-gradient(to right, #CB356B 0%, #BD3F32 51%, #CB356B 100%);
+    padding: 5px 45px;
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;
+    box-shadow: 0 0 0 1px black;
+    border-radius: 10px;
+    display: block;
+    margin-left: 100px;
+}
+
+.btn-search:hover {
+    /* change the direction of the change here */
+    background-position: right center;
+    color: #fff;
+    text-decoration: none;
+    box-shadow: 0 0 20px #eee;
+}
+
+
+.btn-view {
+    background-image: linear-gradient(to right, #200122 0%, #6f0000 51%, #200122 100%);
+    margin: 10px;
+    padding: 10px 20px;
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;
+    box-shadow: 0 0 20px #eee;
+    border-radius: 10px;
+    display: block;
+}
+
+.btn-view:hover {
+    background-position: right center; /* change the direction of the change here */
+    color: #fff;
+    text-decoration: none;
+}
+               

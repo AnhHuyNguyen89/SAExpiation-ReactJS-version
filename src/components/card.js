@@ -10,7 +10,7 @@ function Card(props) {
                 </div>
 
                 {/*Route card to the detail page with the corresponding code*/}
-                <Link to={"/ExpiationList/" + props.expiationOffenceCode} className="btn btn-warning">VIEW DETAILS</Link>
+                <Link to={"/ExpiationList/" + props.expiationOffenceCode} className="btn btn-view">VIEW DETAILS</Link>
             </div>
         </div>
     )

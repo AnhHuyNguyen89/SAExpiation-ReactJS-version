@@ -5,10 +5,13 @@ function ExpiationDetail() {
   
     let params = useParams()
 
+    //get the corresponding code from the previous page
     const [detail, setDetail] = useState({ });
     const [expiationOffenceCode, setId] = useState(params.expiationOffenceCode);
 
+    //get the data to display into the table.
     const [table, setTable] = useState([]);
+    //get the current year with the chosen years
     const [selectedYear, setSelectedYear] = useState(new Date().getFullYear());
 
     var monthCounts = new Array(12).fill(0);
@@ -21,6 +24,7 @@ function ExpiationDetail() {
         })
     });
 
+    //fetch data from API to get the code with description to display
     useEffect(() => {
         fetch(`http://localhost:5129/api/ExpiationOffenceCode?code=${expiationOffenceCode}`)
             .then((response) => response.json())
@@ -49,32 +53,30 @@ function ExpiationDetail() {
 
     return (
         <div className="container">
-            {/*<h1 style=" width:100%;height:120px; text-align:center; line-height:120px" className="border border-dark">Expiation Code Details</h1>*/}
+            <h1 className="border border-dark">Expiation Code Details</h1>
+
+            {/*Sector for displaying the code detail*/}
             <dl>
                 <div class="row mt-4">
                     <dt class="col"><h4>Expiation Code: </h4></dt>
                     <dd class="col">{detail.expiationOffenceCode}</dd>
                 </div>
                 <div class="row">
-                    <dt class="col"><h4>Expiation Detail: </h4></dt>
+                    <dt class="col"><h4>Expiation Description: </h4></dt>
                     <dd class="col">{detail.expiationOffenceDescription}</dd>
-                </div>
-                <div class="row">
-                    <dt class="col"><h4>Total codes:</h4></dt>
-                    <dd class="col">{yearCount}</dd>
                 </div>
             </dl>
 
-                {/*category???*/}
+            {/*category???*/}
 
 
                 
-            <div className="row">
-                <div className="col">
-                    <Link to="/ExpiationList" className="btn btn-dark">Back to List</Link>
+            <div className="function__detail">
+                <div className="back-to-list">
+                    <Link to="/ExpiationList" className="btn btn-back">Back to List</Link>
                 </div>
-                <div className="col">
-                    <select className="form-control row" onChange={yearChange}>
+                <div className="selection">
+                    <select className="form" onChange={yearChange}>
                         <option>{new Date().getFullYear()}</option>
                         <option>{new Date().getFullYear() - 1}</option>
                         <option>{new Date().getFullYear() - 2}</option>
@@ -82,7 +84,7 @@ function ExpiationDetail() {
                 </div>
             </div>  
 
-                {/*table summary*/}
+            {/*Display table details*/}
             <table className="table">
                 <thead className="thead-dark">
                     <tr>
@@ -112,6 +114,12 @@ function ExpiationDetail() {
                     }
                 </tbody>
             </table>
+            <div class="row g-3">
+                <dd className="col"></dd>
+                <dd className="col"></dd>
+                <dt className="col"><h4>Year to date:</h4></dt>
+                <dd className="col">{yearCount}</dd>
+            </div>
         </div>
     );
 }

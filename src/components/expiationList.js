@@ -35,6 +35,7 @@ function ExpiationList() {
     //render or return Card list, code search and description search
     return (
         <div className="expiationListSearch container">
+            <h1 className="border border-dark">Expiation Code List</h1>
             <div className="row justify-content-start mb-3">
                 <div className="col-5 mt-3">
                     <input
@@ -42,14 +43,13 @@ function ExpiationList() {
                         ref={ inputRef }
                         type="text"
                         name="searchText"
-                        
-                        className="form-control"
+                        className="form-control searchInput"
                         spellCheck={ false }
-                        placeholder="Type your query"/>
+                        placeholder="Search here..." />
                 
                     <datalist id="datalist">
                         {expiationData.map((item) => (
-                            <option value={item.expiationOffenceCode }
+                            <option value={item.expiationOffenceCode}
                                 key={item.expiationOffenceCode}
                                 expiationOffenceCode={item.expiationOffenceCode}
                             />
@@ -61,7 +61,7 @@ function ExpiationList() {
                 </div>
 
                 < div className="col-3 text-center mt-3" >
-                    <button type="button" className="btn btn-dark" onClick={searchQuery} onChange={e => setSearchValue(e.target.value)}>Search</button>
+                    <button type="text" className="btn btn-search" onClick={searchQuery} onChange={e => setSearchValue(e.target.value)}>Search</button>
                 </div >
             </div>
 
