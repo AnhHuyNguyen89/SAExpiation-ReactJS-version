@@ -57,8 +57,8 @@ function TableDetail() {
                     {
                         table
                             .filter(data => monthCounts[data.monthNo - 1] > 0)
-                            .map((data,index) => ([
-                                <tr className="row-header-month" key={index}>
+                            .map((data) => ([
+                                <tr className="row-header-month">
                                     <th scope="row">{data.monthName}</th>
                                     <td></td>
                                     <td className="row-header">Total: {monthCounts[data.monthNo - 1]}</td>

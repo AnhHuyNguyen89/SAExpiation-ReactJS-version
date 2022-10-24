@@ -39,16 +39,13 @@ function ExpiationDetail() {
                     <dt className="col"><h4>Expiation Description: </h4></dt>
                     <dd className="col">{detail.expiationOffenceDescription}</dd>
                 </div>
-                {/*category???*/}
-                {/*<div className="row">*/}
-                {/*    <dt className="col"><h4>Expiation Description: </h4></dt>*/}
-                {/*    <dd className="col">{detail.expiationCategory.map((abs) => (*/}
-                {/*        <h1 key={abs.expiationOffenceCode}> {abs.categoryDescription}</h1>*/}
-                {/*        ))}</dd>*/}
-                {/*</div>*/}
+                <div className="row">
+                    <dt className="col"><h4>Category: </h4></dt>
+                    <dd className="col">{detail.expiationCategory?.categoryDescription}</dd>
+                </div>
             </dl>
             
-            {/*table detail of expiation code detail*/}
+            {/*Table detail component in expiation code detail*/}
             <TableDetail></TableDetail>
         </div>
     );

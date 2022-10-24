@@ -11,6 +11,7 @@ function ExpiationList() {
     const inputRef = useRef();
 
     const debounced = useDebounce(searchValue, 500);
+
     //fetch data from API to displat expiation code and description
     useEffect(() => {
         fetch(`http://localhost:5129/api/ExpiationOffenceCodeList?searchText=${encodeURIComponent(debounced)}`)
@@ -68,7 +69,6 @@ function ExpiationList() {
             <div className="row justify-content-center">
                 {expiationData.map((obj) => (   
                     <Card
-                        
                         key={obj.expiationOffenceCode}
                         expiationOffenceCode={obj.expiationOffenceCode}
                         expiationOffenceDescription={obj.expiationOffenceDescription}
@@ -76,11 +76,8 @@ function ExpiationList() {
                 )
                 )
                 }
-            </div>
-            
+            </div>    
         </div>
-
-
     )
 }
 
