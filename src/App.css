@@ -23,7 +23,6 @@
   font-size: calc(10px + 2vmin);
   color: white;
 }
-
 .App-link {
   color: #61dafb;
 }
@@ -36,11 +35,28 @@
     transform: rotate(360deg);
   }
 }
+.navbar {
+    background: linear-gradient(90deg, hsla(233, 100%, 90%, 1) 0%, hsla(0, 0%, 89%, 1) 100%);
+}
+.home__header {
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+.header__img{
+    width:150%;
+    height:500px;
+    margin-left:50px;
+}
+.carousel{
+    margin-bottom:100px;
+}
 .border {
     padding: 30px 0;
-    background-image: linear-gradient(to right, #D1913C 0%, #FFD194 51%, #D1913C 100%);
+    background: linear-gradient(90deg, hsla(31, 90%, 76%, 1) 0%, hsla(302, 82%, 76%, 1) 100%);
     transition: 0.5s;
     background-size: 200% auto;
+    margin-top: 20px;
+    border-radius:8px;
 }
 
 .searchInput:focus {
@@ -113,15 +129,15 @@
 .row-child-key[value="WITHDRAWN"], .row-parent th[value="WITHDRAWN"], .row-child-value[value="WITHDRAWN"] {
     background-color: rgb(226,239,218) !important;
 }
-.yearSelected{
-    text-align:center;
-    align-content:center;
-}
+
+/*div of section form and back button*/
 .function__detail{
     display:flex;
     justify-content:space-between;
     align-content:flex-end;
 }
+
+/*Select form in detail page*/
 .form {
     width: 100%;
     min-width: 15ch;
@@ -181,7 +197,7 @@
     box-shadow: 0 0 20px #eee;
 }
 
-
+/*button view detail in expiation list page*/
 .btn-view {
     background-image: linear-gradient(to right, #200122 0%, #6f0000 51%, #200122 100%);
     margin: 10px;
@@ -201,4 +217,13 @@
     color: #fff;
     text-decoration: none;
 }
-               
+.selectionYear{
+    display:flex;
+    margin-top:40px;
+    margin-bottom:20px;
+}
+.selectionYear h2{
+    margin-right:20px;
+}
+
+

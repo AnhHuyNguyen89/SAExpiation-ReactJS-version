@@ -3,8 +3,9 @@
     "",
     "\\public",
     "\\src",
-    "\\src\\components"
+    "\\src\\components",
+    "\\src\\pages"
   ],
-  "SelectedNode": "\\src\\components\\useDebounce.js",
+  "SelectedNode": "\\src\\pages\\expiationDetail.js",
   "PreviewInSolutionExplorer": false
 }

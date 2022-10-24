@@ -1,9 +1,10 @@
 function Home() {
     return (
-        <div id="carouselExampleControls" className="carousel slide" data-bs-ride="carousel">
+        <div id="carouselExampleControls" className="carousel slide container" data-bs-ride="carousel">
+            <h1 className="home__header">Welcome to South Australia Expiation Code</h1>
             <div className="carousel-inner">
                 <div className="carousel-item active">
-                    <img src="https://data.sa.gov.au/data/uploads/group/sapol-cmyk-vertical.jpg" className="d-block w-100" alt="SA" style={{ height: 550 + 'px', width: 100 + '%' }} />
+                    <img src="https://indaily.com.au/wp-content/uploads/2021/04/SAPOL.jpg?fit=720%2C365" className="d-block w-100" alt="SA" style={{ height: 550 + 'px', width: 100 + '%' }} />
                 </div>
                 <div className="carousel-item">
                     <img src="https://www.vuca.com.au/wp-content/uploads/2022/01/DUO-VERTICAL-COLOUR-scaled.jpg" className="d-block w-100" alt="SA" style={{ height: 500 + 'px', width: 100 + '%' }} />

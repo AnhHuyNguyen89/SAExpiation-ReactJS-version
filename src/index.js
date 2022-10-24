@@ -3,9 +3,11 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import ExpiationList from './components/expiationList';
-import ExpiationDetail from './components/expiationDetail';
-import Home from './components/Home';
+import ExpiationList from './pages/expiationList';
+import ExpiationDetail from './pages/expiationDetail';
+import LocalService from './pages/localServiceList';
+import LocalServiceDetail from './pages/localServiceDetail';
+import Home from './pages/Home';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -15,7 +17,9 @@ root.render(
             <Routes>
                 <Route path="/" element={<App />}>
                     <Route path="ExpiationList" element={<ExpiationList />} />
-                    <Route path="ExpiationList/:expiationOffenceCode" element={ <ExpiationDetail/>}/>
+                    <Route path="ExpiationList/:expiationOffenceCode" element={<ExpiationDetail />} />
+                    <Route path="LocalService" element={<LocalService />} />
+                    <Route path="LocalService/:localServiceAreaCode" element={<LocalServiceDetail />} />
                     <Route path="" element={<Home />} />
                     <Route path="*" element={<Home />} />
                 </Route>
