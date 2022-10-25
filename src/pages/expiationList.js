@@ -62,6 +62,9 @@ function ExpiationList() {
                 </div>
 
                 < div className="col-3 text-center mt-3" >
+                    {/* e.target.value is used to get the input field's value and 
+                    use setSearchValue to set the value gain and update the value of input */}
+                    {/* The "onChange" event in React detects when the value of an input element changes */}
                     <button type="text" className="btn btn-search" onClick={searchQuery} onChange={e => setSearchValue(e.target.value)}>Search</button>
                 </div >
             </div>
