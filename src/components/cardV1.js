@@ -9,7 +9,6 @@ function CardV1(props) {
                     <p className="card-text">Area Code: {props.localServiceAreaCode}</p>
                     <p className="card-text">Count: {props.count}</p>
                 </div>
-
                 {/*Route card to the detail page with the corresponding code*/}
                 <Link to={"/LocalService/" + props.localServiceAreaCode} className="btn btn-view">VIEW DETAILS</Link>
             </div>

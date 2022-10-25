@@ -40,7 +40,7 @@ function ExpiationDetail() {
                     <dd className="col">{detail.expiationOffenceDescription}</dd>
                 </div>
                 <div className="row">
-                    <dt className="col"><h4>Category: </h4></dt>
+                    <dt className="col"><h4>Category Detail: </h4></dt>
                     <dd className="col">{detail.expiationCategory?.categoryDescription}</dd>
                 </div>
             </dl>

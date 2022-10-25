@@ -10,8 +10,6 @@ function LocalServiceDetail() {
     //eslint-disable-next-line
     const [localServiceAreaCode, setId] = useState(params.localServiceAreaCode);
 
-   
-
     useEffect(() => {
         fetch(`http://localhost:5129/api/LocalServiceArea?code=${localServiceAreaCode}`)
             .then((response) => response.json())

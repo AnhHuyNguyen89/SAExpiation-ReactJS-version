@@ -5,20 +5,20 @@ function TableServiceDetail() {
 
     let params = useParams()
 
-    const [table, setTable] = useState([]);
+    const [serrviceDetail, setServiceDetail] = useState([]);
     const [selectedYear, setSelectedYear] = useState(new Date().getFullYear());
 
 
     var yearCount = 0;
 
-    table.forEach(data => {
-            yearCount += data.count;
+    serrviceDetail.forEach(data => {
+        yearCount += data.count;
     });
 
     useEffect(() => {
         fetch(`http://localhost:5129/api/LocalServiceAreaExpiations?code=${params.localServiceAreaCode}&year=${selectedYear}&inclZero=false`)
             .then(response => response.json())
-            .then(data => setTable(data))
+            .then(data => setServiceDetail(data))
             .catch(err => { console.log(err) });
         //eslint-disable-next-line
     }, [selectedYear]);
@@ -54,20 +54,13 @@ function TableServiceDetail() {
                 </thead>
                 <tbody>
                     {
-                        table
+                        serrviceDetail
                             .map((data) => ([
                                 <tr className="row-header-month" key={data.expiationOffenceCode }>
                                     <th scope="row">{data.expiationOffenceCode}</th>
                                     <td>{data.expiationOffenceDescription}</td>
                                     <td className="row-header">{data.count}</td>
                                 </tr>
-                                //data.noticeDetailList.map((notice) =>
-                                //    <tr className="row-parent">
-                                //        <th scope="row">{data.expiationOffenceCode }</th>
-                                //        <td className="row-child-key">{notice.expiationOffenceDescription}</td>
-                                //        <td className="row-child-value">{notice.count}</td>
-                                //    </tr>
-                                //)
                             ]))
                     }
                 </tbody>

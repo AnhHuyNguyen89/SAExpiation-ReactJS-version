@@ -12,7 +12,7 @@ function ExpiationList() {
 
     const debounced = useDebounce(searchValue, 500);
 
-    //fetch data from API to displat expiation code and description
+    //fetch data from API to display expiation code and description
     useEffect(() => {
         fetch(`http://localhost:5129/api/ExpiationOffenceCodeList?searchText=${encodeURIComponent(debounced)}`)
             .then((response) => response.json())

@@ -14,9 +14,9 @@ function TableDetail() {
     var yearCount = 0;
 
     table.forEach(data => {
-        data.noticeDetailList.forEach(notice => {
-            monthCounts[data.monthNo - 1] += notice.count;
-            yearCount += notice.count;
+        data.noticeDetailList.forEach(summary => {
+            monthCounts[data.monthNo - 1] += summary.count;
+            yearCount += summary.count;
         })
     });
     useEffect(() => {
@@ -63,11 +63,11 @@ function TableDetail() {
                                     <td></td>
                                     <td className="row-header">Total: {monthCounts[data.monthNo - 1]}</td>
                                 </tr>,
-                                data.noticeDetailList.map((notice) =>
+                                data.noticeDetailList.map((summary) =>
                                     <tr className="row-parent">
-                                        <th scope="row" value={notice.noticeStatusDescription}></th>
-                                        <td className="row-child-key" value={notice.noticeStatusDescription}>{notice.noticeStatusDescription}</td>
-                                        <td className="row-child-value" value={notice.noticeStatusDescription}>{notice.count}</td>
+                                        <th scope="row" value={summary.noticeStatusDescription}></th>
+                                        <td className="row-child-key" value={summary.noticeStatusDescription}>{summary.noticeStatusDescription}</td>
+                                        <td className="row-child-value" value={summary.noticeStatusDescription}>{summary.count}</td>
                                     </tr>
                                 )
                             ]))
