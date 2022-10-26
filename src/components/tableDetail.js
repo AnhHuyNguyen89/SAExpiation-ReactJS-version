@@ -58,13 +58,15 @@ function TableDetail() {
                         table
                             .filter(data => monthCounts[data.monthNo - 1] > 0)
                             .map((data) => ([
-                                <tr className="row-header-month">
+
+                                <tr className="row-header-month" key={data.monthName}>
                                     <th scope="row">{data.monthName}</th>
                                     <td></td>
                                     <td className="row-header">Total: {monthCounts[data.monthNo - 1]}</td>
                                 </tr>,
                                 data.noticeDetailList.map((summary) =>
-                                    <tr className="row-parent">
+                                    //1 description sẽ xuất hiện 1 lần trong 1 month nên kết hợp lại tạo thành key uniquie 
+                                    <tr className="row-parent" key={`${data.monthNo}${summary.noticeStatusDescription}`}>
                                         <th scope="row" value={summary.noticeStatusDescription}></th>
                                         <td className="row-child-key" value={summary.noticeStatusDescription}>{summary.noticeStatusDescription}</td>
                                         <td className="row-child-value" value={summary.noticeStatusDescription}>{summary.count}</td>

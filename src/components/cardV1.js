@@ -1,6 +1,7 @@
 //Card for task 3
 import { Link } from "react-router-dom";
 function CardV1(props) {
+    
     return (
         <div className="col-4 justify-content-center">
             <div className="card mt-sm-4" style={{ width: 100 + '%', height: 'auto' }}>
@@ -10,7 +11,7 @@ function CardV1(props) {
                     <p className="card-text">Count: {props.count}</p>
                 </div>
                 {/*Route card to the detail page with the corresponding code*/}
-                <Link to={"/LocalService/" + props.localServiceAreaCode} className="btn btn-view">VIEW DETAILS</Link>
+                <Link to={"/LocalService/" + props.localServiceAreaCode + "?year="+ props.selectedYear} className="btn btn-view">VIEW DETAILS</Link>
             </div>
         </div>
     )

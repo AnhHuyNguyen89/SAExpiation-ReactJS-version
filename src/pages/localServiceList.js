@@ -1,10 +1,10 @@
-import React,{ useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import CardV1 from '../components/cardV1';
 
 
 function LocalService() {
 
-    const [serviceList, setServiceList] = useState([]); 
+    const [serviceList, setServiceList] = useState([]);
     const [selectedYear, setSelectedYear] = useState(new Date().getFullYear());
 
     useEffect(() => {
@@ -35,14 +35,15 @@ function LocalService() {
                     <option>{new Date().getFullYear() - 2}</option>
                 </select>
             </div>
-            
+
             <div className="row justify-content-center">
                 {serviceList.map((obj) => (
                     <CardV1
                         key={obj.localServiceArea}
                         localServiceArea={obj.localServiceArea}
                         localServiceAreaCode={obj.localServiceAreaCode}
-                        count={obj.count }
+                        count={obj.count}
+                        selectedYear = {selectedYear}
                     />
                 )
                 )
