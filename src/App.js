@@ -13,12 +13,15 @@ function App() {
                   </button>
                   <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
                       <div className="navbar-nav">
+                        {/* Display the navigation bar */}
+                        {/* TO is used for navigating to the link need to access */}
                           <Link className="nav-link" to="/ExpiationList">Expiation List</Link>
                           <Link className="nav-link" to="/LocalService">Local Service List</Link>
                       </div>
                   </div>
               </div>
           </nav>
+          {/* Outlet will help to display all the context from SPA page is linked above. */}
           <Outlet /> 
     </div>
   );

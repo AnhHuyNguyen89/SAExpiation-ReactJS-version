@@ -11,6 +11,7 @@ function CardV1(props) {
                     <p className="card-text">Count: {props.count}</p>
                 </div>
                 {/*Route card to the detail page with the corresponding code*/}
+                {/* Use the splash / to separate the main domain */}
                 <Link to={"/LocalService/" + props.localServiceAreaCode + "?year="+ props.selectedYear} className="btn btn-view">VIEW DETAILS</Link>
             </div>
         </div>

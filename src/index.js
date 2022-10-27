@@ -13,13 +13,17 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
     <React.StrictMode>
+        {/* BrowserRouter keeps the SPA application context in sync with the URL*/}
         <BrowserRouter>
             <Routes>
                 <Route path="/" element={<App />}>
+                    {/* Part A */}
                     <Route path="ExpiationList" element={<ExpiationList />} />
                     <Route path="ExpiationList/:expiationOffenceCode" element={<ExpiationDetail />} />
+                    {/* Part B */}
                     <Route path="LocalService" element={<LocalService />} />
                     <Route path="LocalService/:localServiceAreaCode" element={<LocalServiceDetail />} />
+                    {/* Any other link or empty link clicked to the Home Page */}
                     <Route path="" element={<Home />} />
                     <Route path="*" element={<Home />} />
                 </Route>

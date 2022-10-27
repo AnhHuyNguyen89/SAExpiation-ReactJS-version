@@ -1,6 +1,7 @@
+//Home Page with using carousel 
 function Home() {
     return (
-        <div id="carouselExampleControls" className="carousel slide container" data-bs-ride="carousel">
+        <div id="carousel" className="carousel slide container" data-bs-ride="carousel">
             <h1 className="home__header">Welcome to South Australia Expiation Code</h1>
             <div className="carousel-inner">
                 <div className="carousel-item active">
@@ -13,11 +14,11 @@ function Home() {
                     <img src="https://i0.wp.com/workerchecks.com/wp-content/uploads/2021/08/SA-PC.png?fit=1280%2C720&ssl=1" className="d-block w-100" alt="SA" style={{ height: 500 + 'px', width: 100 + '%' }} />
                 </div>
             </div>
-            <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+            <button className="carousel-control-prev" type="button" data-bs-target="#carousel" data-bs-slide="prev">
                 <span className="carousel-control-prev-icon" aria-hidden="true"></span>
                 <span className="visually-hidden">Previous</span>
             </button>
-            <button className="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+            <button className="carousel-control-next" type="button" data-bs-target="#carousel" data-bs-slide="next">
                 <span className="carousel-control-next-icon" aria-hidden="true"></span>
                 <span className="visually-hidden">Next</span>
             </button>

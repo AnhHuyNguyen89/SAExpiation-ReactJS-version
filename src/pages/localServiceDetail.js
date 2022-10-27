@@ -10,6 +10,8 @@ function LocalServiceDetail() {
     //eslint-disable-next-line
     const [localServiceAreaCode, setId] = useState(params.localServiceAreaCode);
 
+    //fetch data from API to display Local service Code by years and handle all side effects with useEffect
+    //pass the code after the main domain and separate with "?code="
     useEffect(() => {
         fetch(`http://localhost:5129/api/LocalServiceArea?code=${localServiceAreaCode}`)
             .then((response) => response.json())
@@ -23,6 +25,7 @@ function LocalServiceDetail() {
     }, [localServiceAreaCode]);
 
     return (
+        //render data to display
         <div className="container">
             <h1 className="border border-dark">Local Service Details</h1>
 

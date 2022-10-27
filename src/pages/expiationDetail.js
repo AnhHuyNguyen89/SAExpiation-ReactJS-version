@@ -2,17 +2,15 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import TableDetail from '../components/tableDetail';
 function ExpiationDetail() {
-  
+    //returns a parameter object with properties that represent each named URL parameter
     let params = useParams()
 
     //get the corresponding code from the previous page
     const [detail, setDetail] = useState([]);
-    //eslint-disable-next-line
-    const [expiationOffenceCode, setId] = useState(params.expiationOffenceCode);
 
-    //fetch data from API to get the code with description to display
+    //fetch data from API to get the code with description to display and pass params to the expiationOffenceCode
     useEffect(() => {
-        fetch(`http://localhost:5129/api/ExpiationOffenceCode?code=${expiationOffenceCode}`)
+        fetch(`http://localhost:5129/api/ExpiationOffenceCode?code=${params.expiationOffenceCode}`)
             .then((response) => response.json())
             .then((data) => {
                 setDetail(data);
@@ -20,10 +18,8 @@ function ExpiationDetail() {
             .catch(error => {
                 console.error(error);
             });
-
-    }, [expiationOffenceCode]);
-
-
+    //to stop the cyclic request.
+    }, [params.expiationOffenceCode]);
 
     return (
         <div className="container">
@@ -42,6 +38,7 @@ function ExpiationDetail() {
                 <div className="row">
                     <dt className="col"><h4>Category Detail: </h4></dt>
                     <dd className="col">{detail.expiationCategory?.categoryDescription}</dd>
+                    {/* "?" to check nullable in JS which display the data and return null if no value */}
                 </div>
             </dl>
             

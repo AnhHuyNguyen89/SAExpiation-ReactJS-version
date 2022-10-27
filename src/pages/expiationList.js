@@ -10,7 +10,7 @@ function ExpiationList() {
 
     const inputRef = useRef();
 
-    //fetch data from API to display expiation code and description
+    //fetch data from API to display expiation code and description and handle all side effects with useEffect
     //encodeURIComponent used for encode all special characters into formal format
     useEffect(() => {
         fetch(`http://localhost:5129/api/ExpiationOffenceCodeList?searchText=${encodeURIComponent(searchValue)}`)
@@ -25,6 +25,7 @@ function ExpiationList() {
 
     //function for button to show alert the chosen value for searching 
     function searchQuery(evt) {
+        //Select the value of element.
         const value = document.querySelector('[name="searchText"]').value;
         //alert which code or description is searched
         alert('Search Value: ' + value);
@@ -44,6 +45,7 @@ function ExpiationList() {
                         type="text"
                         name="searchText"
                         className="form-control searchInput"
+                        // not to check words grammar
                         spellCheck={false}
                         placeholder="Search here..." />
                     {/* DataList with id should match with list in input to show the list */}
