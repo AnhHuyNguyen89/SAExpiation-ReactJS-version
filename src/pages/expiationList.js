@@ -15,7 +15,6 @@ function ExpiationList() {
     useEffect(() => {
         fetch(`http://localhost:5129/api/ExpiationOffenceCodeList?searchText=${encodeURIComponent(searchValue)}`)
             .then((response) => response.json())
-
             .then((data) => {
                 setState(data);
             })
