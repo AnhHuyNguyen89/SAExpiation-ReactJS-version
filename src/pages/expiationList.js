@@ -1,5 +1,5 @@
 import Card from '../components/card';
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect} from 'react';
 
 //Task 1: Card, useDebounce, Home and expiationList
 function ExpiationList() {
@@ -8,7 +8,6 @@ function ExpiationList() {
     //searchValue is the input when typing in and setSearchValue will set Search value again if anything changed.
     const [searchValue, setSearchValue] = useState('');
 
-    const inputRef = useRef();
 
     //fetch data from API to display expiation code and description and handle all side effects with useEffect
     //encodeURIComponent used for encode all special characters into formal format
@@ -23,15 +22,23 @@ function ExpiationList() {
             });
     }, [searchValue]);
 
-    //function for button to show alert the chosen value for searching 
-    function searchQuery(evt) {
+    //function for button to show alert the chosen value for searching
+    const searchQuery = () => {
         //Select the value of element.
-        const value = document.querySelector('[name="searchText"]').value;
+        const search = document.querySelector('[name="searchText"]').value;
         //alert which code or description is searched
-        alert('Search Value: ' + value);
-        //update the value of search with setting a search value again when searching
-        setSearchValue(value)
+        if(!search){
+            return setSearchValue(search);
+        }else{
+            alert('Search Value: ' + search);
+            //update the value of search with setting a search value again when searching
+            setSearchValue(search)
+        }
     }
+    //clear the input after being searched
+    const clear = (event) => {
+        event.target.value = "";
+    };
 
     //render or return Card list, code search and description search
     return (
@@ -41,12 +48,13 @@ function ExpiationList() {
                 <div className="col-5 mt-3">
                     <input
                         list="datalist"
-                        ref={inputRef}
                         type="text"
+                        input={searchValue}
                         name="searchText"
                         className="form-control searchInput"
                         // not to check words grammar
                         spellCheck={false}
+                        onFocus={clear}
                         placeholder="Search here..." />
                     {/* DataList with id should match with list in input to show the list */}
                     <datalist id="datalist">
@@ -57,17 +65,15 @@ function ExpiationList() {
                         )
                         )
                         }
-
                     </datalist>
                 </div>
-
                 < div className="col-3 text-center mt-3" >
-                    {/* e.target.value is used to get the input field's value and 
+                    {/* e.target.value is used to get the input field's value and
                     use setSearchValue to set the value gain and update the value of input */}
 
-                    {/* The "onChange" event in React detects when the value of an input element changes 
-                    and it will update the value gain*/}
-                    <button type="text" className="btn btn-search" onClick={searchQuery} onChange={e => setSearchValue(e.target.value)}>Search</button>
+                    {/* The "onChange" event in React detects when the value of an input element has changed
+                    and it will update the value again*/}
+                    <button type="submit" className="btn btn-search" onClick={searchQuery} onChange={e => setSearchValue(e.target.value)}>Search</button>
                 </div >
             </div>
 

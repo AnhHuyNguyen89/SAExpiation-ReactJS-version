@@ -9,8 +9,9 @@ function TableDetail() {
     //declare state to get data into the table.
     const [table, setTable] = useState([]);
     //declare useState and get the current year
+    //using Date function() to get the current year with getFullYear to get the year.
     const [selectedYear, setSelectedYear] = useState(new Date().getFullYear());
-    //add months in Array and set index with 0. 
+    //add months in Array with 12 items and set index with 0. 
     var monthCounts = new Array(12).fill(0);
     //delare yearCount is 0
     var yearCount = 0;
@@ -33,13 +34,12 @@ function TableDetail() {
         //eslint-disable-next-line
     }, [selectedYear]);
 
-    //set selected Year when value is changed
+    //set selected Year again when value is changed
     function yearChange(event) {
         setSelectedYear(event.target.value);
     }
 
     return (
-
         <div>
             <div className="function__detail">
                 <div className="back-to-list">

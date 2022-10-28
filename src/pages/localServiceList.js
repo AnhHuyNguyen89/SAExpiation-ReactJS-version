@@ -31,13 +31,14 @@ function LocalService() {
             {/* Year selection */}
             <div className="selectionYear">
                 <h2>Year selection: </h2>
+                {/* not to put selectedYear replaced as it will replace the state */}
                 <select className="form" onChange={yearChange}>
                     <option>{new Date().getFullYear()}</option>
                     <option>{new Date().getFullYear() - 1}</option>
                     <option>{new Date().getFullYear() - 2}</option>
                 </select>
             </div>
-            {/* map the value and call it to the cardV1 */}
+            {/* map the value to the cardV1 */}
             <div className="row justify-content-center">
                 {serviceList.map((obj) => (
                     <CardV1

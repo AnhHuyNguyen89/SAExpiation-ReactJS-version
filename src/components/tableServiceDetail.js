@@ -4,16 +4,18 @@ import { Link, useParams, useLocation } from 'react-router-dom';
 function TableServiceDetail() {
 
     let params = useParams()
-
+    //declare state to get data into the table.
     const [serrviceDetail, setServiceDetail] = useState([]);
+
 
     const selectedYear = new URLSearchParams(useLocation().search).get("year");
     if(selectedYear == null) selectedYear = new Date().getFullYear();
 
 
-    var yearCount = 0;
+    //sum the all count from data  => Total number 
+    var totalCount = 0;
     serrviceDetail.forEach(data => {
-        yearCount += data.count;
+        totalCount += data.count;
     });
 
     useEffect(() => {
@@ -28,6 +30,7 @@ function TableServiceDetail() {
         <div>
             <div className="function__detail">
                 <div className="back-to-list">
+                    {/* using bootstrap class for Link elelment to turn to button */}
                     <Link to="/ExpiationList" className="btn btn-back">Back to List</Link>
                 </div>
                 <div className="row">
@@ -62,7 +65,7 @@ function TableServiceDetail() {
                 <dd className="col"></dd>
                 <dd className="col"></dd>
                 <dt className="col"><h4>Total of codes: </h4></dt>
-                <dd className="col">{yearCount}</dd>
+                <dd className="col">{totalCount}</dd>
             </div>
         </div>
     )

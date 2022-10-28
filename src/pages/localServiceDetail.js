@@ -7,13 +7,13 @@ function LocalServiceDetail() {
 
     //get the corresponding code from the previous page
     const [detail, setDetail] = useState({});
-    //eslint-disable-next-line
-    const [localServiceAreaCode, setId] = useState(params.localServiceAreaCode);
+    // const [localServiceAreaCode, setId] = useState(params.localServiceAreaCode);
 
     //fetch data from API to display Local service Code by years and handle all side effects with useEffect
     //pass the code after the main domain and separate with "?code="
+    //useParams for passing the params from route to the link and match with the params. 
     useEffect(() => {
-        fetch(`http://localhost:5129/api/LocalServiceArea?code=${localServiceAreaCode}`)
+        fetch(`http://localhost:5129/api/LocalServiceArea?code=${params.localServiceAreaCode}`)
             .then((response) => response.json())
             .then((data) => {
                 setDetail(data);
@@ -22,7 +22,7 @@ function LocalServiceDetail() {
                 console.error(error);
             });
 
-    }, [localServiceAreaCode]);
+    }, [params.localServiceAreaCode]);
 
     return (
         //render data to display
