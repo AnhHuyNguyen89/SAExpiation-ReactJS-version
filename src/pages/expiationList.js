@@ -8,7 +8,6 @@ function ExpiationList() {
     //searchValue is the input when typing in and setSearchValue will set Search value again if anything changed.
     const [searchValue, setSearchValue] = useState('');
 
-
     //fetch data from API to display expiation code and description and handle all side effects with useEffect
     //encodeURIComponent used for encode all special characters into formal format
     useEffect(() => {
@@ -16,7 +15,7 @@ function ExpiationList() {
             .then((response) => response.json())
             .then((data) => {
                 setState(data);
-            })
+            })  
             .catch(error => {
                 console.error(error);
             });
