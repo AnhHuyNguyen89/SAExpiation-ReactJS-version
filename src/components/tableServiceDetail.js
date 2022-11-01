@@ -9,6 +9,7 @@ function TableServiceDetail() {
 
 
     const selectedYear = new URLSearchParams(useLocation().search).get("year");
+    // eslint-disable-next-line
     if(selectedYear == null) selectedYear = new Date().getFullYear();
 
 

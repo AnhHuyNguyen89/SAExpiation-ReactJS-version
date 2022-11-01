@@ -11,7 +11,7 @@ function TableDetail() {
     //declare useState and get the current year
     //using Date function() to get the current year with getFullYear to get the year.
     const [selectedYear, setSelectedYear] = useState(new Date().getFullYear());
-    //add months in Array with 12 items and set index with 0. 
+    //add month Counts in Array with 12 items and set index with 0. 
     var monthCounts = new Array(12).fill(0);
     //delare yearCount is 0
     var yearCount = 0;

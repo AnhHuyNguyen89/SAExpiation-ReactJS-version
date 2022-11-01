@@ -72,7 +72,7 @@ function ExpiationList() {
 
                     {/* The "onChange" event in React detects when the value of an input element has changed
                     and it will update the value again*/}
-                    <button type="submit" className="btn btn-search" onClick={searchQuery} onChange={e => setSearchValue(e.target.value)}>Search</button>
+                    <button type="button" className="btn btn-search" onClick={searchQuery} onChange={e => setSearchValue(e.target.value)}>Search</button>
                 </div >
             </div>
 

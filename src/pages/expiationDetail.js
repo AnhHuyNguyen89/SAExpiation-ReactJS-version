@@ -37,8 +37,9 @@ function ExpiationDetail() {
                 </div>
                 <div className="row">
                     <dt className="col"><h4>Category Detail: </h4></dt>
-                    <dd className="col">{detail.expiationCategory?.categoryDescription}</dd>
                     {/* "?" to check nullable in JS which display the data and return null if no value */}
+                    {/* References: JS documentation */}
+                    <dd className="col">{detail.expiationCategory?.categoryDescription}</dd>
                 </div>
             </dl>
             
