@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import CardV1 from '../components/cardV1';
+import CardLocalServiceList from '../components/cardLocalServiceList';
 
 
 function LocalService() {
@@ -41,7 +41,7 @@ function LocalService() {
             {/* map the value to the cardV1 */}
             <div className="row justify-content-center">
                 {serviceList.map((obj) => (
-                    <CardV1
+                    <CardLocalServiceList
                         key={obj.localServiceArea}
                         localServiceArea={obj.localServiceArea}
                         localServiceAreaCode={obj.localServiceAreaCode}

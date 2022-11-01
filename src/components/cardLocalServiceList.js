@@ -1,6 +1,6 @@
 //Card for task 3
 import { Link } from "react-router-dom";
-function CardV1(props) {
+function CardLocalServiceList(props) {
     
     return (
         <div className="col-4 justify-content-center">
@@ -18,4 +18,4 @@ function CardV1(props) {
     )
 }
 
-export default CardV1;
+export default CardLocalServiceList;

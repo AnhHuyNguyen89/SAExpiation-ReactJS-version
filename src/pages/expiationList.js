@@ -1,4 +1,4 @@
-import Card from '../components/card';
+import CardExpiationList from '../components/cardExpiationList';
 import React, { useState, useEffect} from 'react';
 
 //Task 1: Card, useDebounce, Home and expiationList
@@ -79,7 +79,7 @@ function ExpiationList() {
             <div className="row justify-content-center">
                 {/* Map the data from ExpiationOffenceCodeList to Card */}
                 {expiationData.map((obj) => (
-                    <Card
+                    <CardExpiationList
                         key={obj.expiationOffenceCode}
                         expiationOffenceCode={obj.expiationOffenceCode}
                         expiationOffenceDescription={obj.expiationOffenceDescription}

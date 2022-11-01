@@ -3,7 +3,7 @@
 import { Link } from "react-router-dom";
 
 
-const Card=({expiationOffenceCode,expiationOffenceDescription})=>(
+const CardExpiationList=({expiationOffenceCode,expiationOffenceDescription})=>(
         // Use card Bootstrap to display information from database.
         <div className="col-4 justify-content-center">
             <div className="card mt-sm-4" style={{ width: 100 + '%', height : 'auto' }}>
@@ -19,4 +19,4 @@ const Card=({expiationOffenceCode,expiationOffenceDescription})=>(
 )
 
 
-export default Card
+export default CardExpiationList;
