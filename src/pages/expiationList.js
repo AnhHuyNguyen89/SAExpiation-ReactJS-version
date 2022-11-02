@@ -3,8 +3,8 @@ import React, { useState, useEffect} from 'react';
 
 //Task 1: Card, useDebounce, Home and expiationList
 function ExpiationList() {
-    //load expiationData to the empty list and setState will update the value when anything changes.
-    const [expiationData, setState] = useState([]);
+    //load expiationData to the empty list and setExpiationData will update the value when anything changes.
+    const [expiationData, setExpiationData] = useState([]);
     //searchValue is the input when typing in and setSearchValue will set Search value again if anything changed.
     const [searchValue, setSearchValue] = useState('');
 
@@ -14,7 +14,7 @@ function ExpiationList() {
         fetch(`http://localhost:5129/api/ExpiationOffenceCodeList?searchText=${encodeURIComponent(searchValue)}`)
             .then((response) => response.json())
             .then((data) => {
-                setState(data);
+                setExpiationData(data);
             })  
             .catch(error => {
                 console.error(error);
