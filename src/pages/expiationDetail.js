@@ -18,7 +18,7 @@ function ExpiationDetail() {
             .catch(error => {
                 console.error(error);
             });
-    //to stop the cyclic request.
+        //to stop the cyclic request.
     }, [params.expiationOffenceCode]);
 
     return (
@@ -42,7 +42,7 @@ function ExpiationDetail() {
                     <dd className="col">{detail.expiationCategory?.categoryDescription}</dd>
                 </div>
             </dl>
-            
+
             {/*Table detail component in expiation code detail*/}
             <TableDetail></TableDetail>
         </div>

@@ -10,7 +10,7 @@ const CardExpiationList=({expiationOffenceCode,expiationOffenceDescription})=>(
                 <div className="card-body">
                     <h5 className="card-title">{expiationOffenceCode}</h5>
                     <p className="card-text">{expiationOffenceDescription}</p>
-                </div>
+                </div>  
                 {/* Use the splash / to separate the main domain */}
                 {/*Route card to the detail page with the corresponding code*/}
                 <Link to={"/ExpiationList/" + expiationOffenceCode} className="btn btn-view">VIEW DETAILS</Link>

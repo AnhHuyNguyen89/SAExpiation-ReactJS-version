@@ -31,7 +31,7 @@ function ExpiationList() {
         }else{
             alert('Search Value: ' + search);
             //update the value of search with setting a search value again when searching
-            setSearchValue(search)
+            setSearchValue(search);
         }
     }
     //clear the input after being searched

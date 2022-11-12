@@ -25,7 +25,7 @@ function TableServiceDetail() {
             .then(data => setServiceDetail(data))
             .catch(err => { console.log(err) });
         //eslint-disable-next-line
-    }, []);
+    }, [params.localServiceAreaCode]);
     
     return (
         <div>
