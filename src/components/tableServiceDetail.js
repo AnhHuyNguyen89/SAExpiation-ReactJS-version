@@ -6,19 +6,16 @@ function TableServiceDetail() {
     let params = useParams()
     //declare state to get data into the table.
     const [serrviceDetail, setServiceDetail] = useState([]);
-
-
     const selectedYear = new URLSearchParams(useLocation().search).get("year");
     // eslint-disable-next-line
     if(selectedYear == null) selectedYear = new Date().getFullYear();
-
-
     //sum the all count from data  => Total number 
     var totalCount = 0;
     serrviceDetail.forEach(data => {
         totalCount += data.count;
     });
 
+     //fetch data from API to display Local Service Area code and years, also handles all side effects with useEffect
     useEffect(() => {
         fetch(`http://localhost:5129/api/LocalServiceAreaExpiations?code=${params.localServiceAreaCode}&year=${selectedYear}&inclZero=false`)
             .then(response => response.json())

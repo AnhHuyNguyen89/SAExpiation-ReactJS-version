@@ -11,8 +11,8 @@ function TableDetail() {
     //declare useState and get the current year
     //using Date function() to get the current year with getFullYear to get the year.
     const [selectedYear, setSelectedYear] = useState(new Date().getFullYear());
-    const [yearList,setYearList] = useState([]);
-    //add month Counts in Array with 12 items and set index with 0. 
+    const [yearList, setYearList] = useState([]);
+    //add month Counts into Array with 12 items and set index with 0. 
     var monthCounts = new Array(12).fill(0);
     //delare yearCount is 0
     var yearCount = 0;
@@ -41,8 +41,8 @@ function TableDetail() {
             .then(response => response.json())
             .then(data => setYearList(data))
             .catch(err => { console.log(err) });
-    //eslint-disable-next-line
-    },[]);
+        //eslint-disable-next-line
+    }, []);
 
 
     //set selected Year again when value is changed
@@ -59,13 +59,13 @@ function TableDetail() {
                 <div className="selection">
                     <select className="form" onChange={yearChange}>
                         {
-                            yearList.map((item)=>(
+                            yearList.map((item) => (
                                 <option key={item}>{item}</option>
                             ))
                         }
                     </select>
                 </div>
-            </div>  
+            </div>
             <table className="table">
                 <thead className="thead-dark">
                     <tr>

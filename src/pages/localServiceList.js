@@ -7,6 +7,8 @@ function LocalService() {
     const [serviceList, setServiceList] = useState([]);
     //declare selected year and set useSate to the current year
     const [selectedYear, setSelectedYear] = useState(new Date().getFullYear());
+    //declare the year list for the selection option
+    const [yearList,setYearList] = useState([]);
 
     //fetch data from API to display Local service List by years and handle all side effects with useEffect
     useEffect(() => {
@@ -20,7 +22,19 @@ function LocalService() {
             });
     }, [selectedYear]);
 
-    //set selected Year when value is changed
+    //fetch data from API to display Years List and handle all side effects with useEffect
+    useEffect(() => {
+        fetch(`http://localhost:5129/api/LSAYearList`)
+            .then((response) => response.json())
+            .then((data) => {
+                setYearList(data);
+            })
+            .catch(error => {
+                console.error(error);
+            });
+    }, []);
+
+    //set selected Year when value is changed by setting useState
     function yearChange(event) {
         setSelectedYear(event.target.value);
     }
@@ -28,25 +42,29 @@ function LocalService() {
     return (
         <div className="localServiceSearch container">
             <h1 className="border border-dark">Local Service List</h1>
+            
             {/* Year selection */}
             <div className="selectionYear">
                 <h2>Year selection: </h2>
-                {/* not to put selectedYear replaced as it will replace the state */}
                 <select className="form" onChange={yearChange}>
-                    <option>{new Date().getFullYear()}</option>
-                    <option>{new Date().getFullYear() - 1}</option>
-                    <option>{new Date().getFullYear() - 2}</option>
+                    {
+                         yearList.map((item) => (
+                            <option key={item}>{item}</option>
+                        ))
+                    }
                 </select>
             </div>
+
             {/* map the value to the cardV1 */}
             <div className="row justify-content-center">
                 {serviceList.map((obj) => (
+                    //Card to show all necessary information
                     <CardLocalServiceList
                         key={obj.localServiceArea}
                         localServiceArea={obj.localServiceArea}
                         localServiceAreaCode={obj.localServiceAreaCode}
                         count={obj.count}
-                        selectedYear = {selectedYear}
+                        selectedYear={selectedYear}
                     />
                 )
                 )

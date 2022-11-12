@@ -1,7 +1,6 @@
 //Card for task 3
 import { Link } from "react-router-dom";
 function CardLocalServiceList(props) {
-    
     return (
         <div className="col-4 justify-content-center">
             <div className="card mt-sm-4" style={{ width: 100 + '%', height: 'auto' }}>

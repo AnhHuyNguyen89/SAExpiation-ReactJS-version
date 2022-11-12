@@ -1,5 +1,5 @@
 import CardExpiationList from '../components/cardExpiationList';
-import React, { useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 
 //Task 1: Card, useDebounce, Home and expiationList
 function ExpiationList() {
@@ -9,26 +9,29 @@ function ExpiationList() {
     const [searchValue, setSearchValue] = useState('');
 
     //fetch data from API to display expiation code and description and handle all side effects with useEffect
-    //encodeURIComponent used for encode all special characters into formal format
     useEffect(() => {
+        //encodeURIComponent used for encode all special characters(For example: ",#,$,%,&,') into formal format
         fetch(`http://localhost:5129/api/ExpiationOffenceCodeList?searchText=${encodeURIComponent(searchValue)}`)
             .then((response) => response.json())
             .then((data) => {
                 setExpiationData(data);
-            })  
+            })
             .catch(error => {
                 console.error(error);
             });
+    //to stop the cyclic request.
     }, [searchValue]);
 
     //function for button to show alert the chosen value for searching
     const searchQuery = () => {
-        //Select the value of element.
+        //Select the value of element
         const search = document.querySelector('[name="searchText"]').value;
         //alert which code or description is searched
-        if(!search){
+        // if not search anything, click the button to show all the expiation code list
+        if (!search) {
             return setSearchValue(search);
-        }else{
+        //Otherwise, it will alert what code is searched
+        } else {
             alert('Search Value: ' + search);
             //update the value of search with setting a search value again when searching
             setSearchValue(search);
@@ -36,6 +39,7 @@ function ExpiationList() {
     }
     //clear the input after being searched
     const clear = (event) => {
+        //clear all event in the search text
         event.target.value = "";
     };
 
@@ -51,8 +55,9 @@ function ExpiationList() {
                         input={searchValue}
                         name="searchText"
                         className="form-control searchInput"
-                        // not to check words grammar
+                        // not to check words grammar for not showing any red underline if user search wrong words or grammar
                         spellCheck={false}
+                        //onfocus is used when we hold mouse in the input and it will run a function clear() to clear all input in the search text. 
                         onFocus={clear}
                         placeholder="Search here..." />
                     {/* DataList with id should match with list in input to show the list */}
@@ -79,6 +84,7 @@ function ExpiationList() {
             <div className="row justify-content-center">
                 {/* Map the data from ExpiationOffenceCodeList to Card */}
                 {expiationData.map((obj) => (
+                    //Card to show neccessary information
                     <CardExpiationList
                         key={obj.expiationOffenceCode}
                         expiationOffenceCode={obj.expiationOffenceCode}
